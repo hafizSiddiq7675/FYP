@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Business Management System</title>
+    @*Render all described css files in content that are described in bundle config class*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*awsome fonts for in the application*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+
+            @*This code allow to scale automatically on mobile devices And create Three Automatically Bars on right corner*@
+
+            <div class="navbar-header">
+
+                @*navbar-toggle :
+                    data-toggle :
+                    data-target :*@
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                @*Adding Image *@
+                <div class="navbar-header pull-left">
+                    <img class="navbar-brand" alt="Logo" src="~/images/BMSLogo.png" height="50" width="75" />
+                </div>
+
+                @*LinkText, Action Name, Controller... *@
+                @Html.ActionLink("Business PRO: BMS", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*Ancher Text, Action Name and Rout Value*@
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+
+                @*Partial View Name*@
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        @*javascript:void(0): Prevent from unwanted loading of the page*@
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+            <li> 
+            @Html.ActionLink(" Dashboard", "Index", "Dashboard", "Dashboard", new { @class = "fa fa-dashboard" })
+            @*<a href=""><i class="fa fa-dashboard"><span> Dashboard</span></i></a></li>*@
+            @*Drop-Down*@
+
+            <li class="dropdown">
+
+                <a class="dropdown-toggle" data-toggle="collapse" data-target="#demo" href="#"><i class="fa fa-link"></i><span> Account Payables</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="collapse" id="demo" style="text-align:left">
+                    <li><a href="#">Purchase Orders</a></li>
+                    <li><a href="#">Purchase Invoices</a></li>
+                    <li><a href="#">Payments</a></li>
+                    <li><a href="#">Vendors</a></li>
+                </ul>
+
+                <a class="dropdown-toggle" data-toggle="collapse" data-target="#demo1" href="#"><i class="fa fa-industry"></i><span> Account Receiveables</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="collapse" id="demo1" style="text-align:left">
+                    <li><a href="#">Sales Qoutations</a></li>
+                    <li><a href="#">Sales Orders</a></li>
+                    <li><a href="#">Sales Receipts</a></li>
+                    <li><a href="#">Customers</a></li>
+                </ul>
+
+                <a class="dropdown-toggle" data-toggle="collapse" data-target="#demo2" href="#"><i class="fa fa-wrench"></i><span> Inventory Control</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="collapse" id="demo2" style="text-align:left">
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Inventory Control Journal</a></li>
+                </ul>
+
+                <a class="dropdown-toggle" data-toggle="collapse" data-target="#demo3" href="#"><i class="fa fa-bank"></i><span> Financials</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="collapse" id="demo3" style="text-align:left">
+                    <li><a href="#">Journal Entries</a></li>
+                    <li><a href="#">General Ladger</a></li>
+                    <li><a href="#">Banks</a></li>
+                    <li><a href="#">Acounts</a></li>
+                </ul>
+
+                <a class="dropdown-toggle" data-toggle="collapse" data-target="#demo4" href="#"><i class="fa fa-line-chart"></i><span> Reports</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="collapse" id="demo4" style="text-align:left">
+                    <li><a href="#">Balance Sheet</a></li>
+                    <li><a href="#">Income Statement</a></li>
+                    <li><a href="#">Trail Balance</a></li>
+                </ul>
+
+                <a class="dropdown-toggle" data-toggle="collapse" data-target="#demo5" href="#"><i class="fa fa-desktop"></i><span> System Administration</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="collapse" id="demo5" style="text-align:left">
+                    <li><a href="#">Users</a></li>
+                    <li><a href="#">Roles</a></li>
+                </ul>
+
+                <a class="dropdown-toggle" data-toggle="collapse" data-target="#demo6" href="#"><i class="fa fa-envelope"></i><span> SMS Alert</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="collapse" id="demo6" style="text-align:left">
+                    <li><a href="#">Email To Customers</a></li>
+                    <li><a href="#">Email To Vendors</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;<b style="text-decoration-color:red;">&nbsp;Our Services</b></span>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+        </div>
+        <footer>
+            <p style="text-align:center">&copy; @DateTime.Now.Year - BUSINESS PRO:BMS</p>
+        </footer>
+    </div>
+
+    @*Adding javascript files*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
