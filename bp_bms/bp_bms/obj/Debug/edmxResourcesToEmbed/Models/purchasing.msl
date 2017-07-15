@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bmsModelStoreContainer" CdmEntityContainer="bmsEntitiesPurchasing">
+    <EntitySetMapping Name="accounts">
+      <EntityTypeMapping TypeName="bmsModel.account">
+        <MappingFragment StoreEntitySet="account">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="payment" ColumnName="payment" />
+          <ScalarProperty Name="amt" ColumnName="amt" />
+          <ScalarProperty Name="accName" ColumnName="accName" />
+          <ScalarProperty Name="accType" ColumnName="accType" />
+          <ScalarProperty Name="compID" ColumnName="compID" />
+          <ScalarProperty Name="accID" ColumnName="accID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="accountHeads">
+      <EntityTypeMapping TypeName="bmsModel.accountHead">
+        <MappingFragment StoreEntitySet="accountHead">
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="accType" ColumnName="accType" />
+          <ScalarProperty Name="accID" ColumnName="accID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="companies">
+      <EntityTypeMapping TypeName="bmsModel.company">
+        <MappingFragment StoreEntitySet="company">
+          <ScalarProperty Name="compType" ColumnName="compType" />
+          <ScalarProperty Name="compID" ColumnName="compID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="items">
+      <EntityTypeMapping TypeName="bmsModel.item">
+        <MappingFragment StoreEntitySet="item">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="saleDiscription" ColumnName="saleDiscription" />
+          <ScalarProperty Name="purchaseDiscription" ColumnName="purchaseDiscription" />
+          <ScalarProperty Name="measurementID" ColumnName="measurementID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="vname" ColumnName="vname" />
+          <ScalarProperty Name="vid" ColumnName="vid" />
+          <ScalarProperty Name="accID" ColumnName="accID" />
+          <ScalarProperty Name="itemID" ColumnName="itemID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="measurements">
+      <EntityTypeMapping TypeName="bmsModel.measurement">
+        <MappingFragment StoreEntitySet="measurement">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discription" ColumnName="discription" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="measurementID" ColumnName="measurementID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payments">
+      <EntityTypeMapping TypeName="bmsModel.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="amtToPay" ColumnName="amtToPay" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="amtPaid" ColumnName="amtPaid" />
+          <ScalarProperty Name="invAmount" ColumnName="invAmount" />
+          <ScalarProperty Name="vname" ColumnName="vname" />
+          <ScalarProperty Name="vid" ColumnName="vid" />
+          <ScalarProperty Name="vendorInvoiceNo" ColumnName="vendorInvoiceNo" />
+          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
+          <ScalarProperty Name="accID" ColumnName="accID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="puchaseOrders">
+      <EntityTypeMapping TypeName="bmsModel.puchaseOrder">
+        <MappingFragment StoreEntitySet="puchaseOrder">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="vname" ColumnName="vname" />
+          <ScalarProperty Name="vid" ColumnName="vid" />
+          <ScalarProperty Name="measurementID" ColumnName="measurementID" />
+          <ScalarProperty Name="itemID" ColumnName="itemID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purchaseinvoices">
+      <EntityTypeMapping TypeName="bmsModel.purchaseinvoice">
+        <MappingFragment StoreEntitySet="purchaseinvoice">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="vendorInvoiceNo" ColumnName="vendorInvoiceNo" />
+          <ScalarProperty Name="measurementID" ColumnName="measurementID" />
+          <ScalarProperty Name="itemID" ColumnName="itemID" />
+          <ScalarProperty Name="vid" ColumnName="vid" />
+          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vendors">
+      <EntityTypeMapping TypeName="bmsModel.vendor">
+        <MappingFragment StoreEntitySet="vendor">
+          <ScalarProperty Name="BankAcNo" ColumnName="BankAcNo" />
+          <ScalarProperty Name="BankAcTitle" ColumnName="BankAcTitle" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="accID" ColumnName="accID" />
+          <ScalarProperty Name="vid" ColumnName="vid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bmsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="accID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="compID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="accType" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="accName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="amt" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="payment" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="balance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="accountHead">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="accType" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="accID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="accType" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="balance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="company">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="compID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="compType" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="itemID" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="accID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="vid" Type="int" Nullable="false" />
+    <Property Name="vname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="measurementID" Type="int" Nullable="false" />
+    <Property Name="purchaseDiscription" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="saleDiscription" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="cost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="measurement">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="measurementID" Type="int" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="discription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="accID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="invoiceID" Type="int" Nullable="false" />
+    <Property Name="vendorInvoiceNo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="vid" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="vname" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="invAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="amtPaid" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="balance" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="amtToPay" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="puchaseOrder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="itemID" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="measurementID" Type="int" Nullable="false" />
+    <Property Name="vid" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="vname" Type="varbinary" MaxLength="30" Nullable="false" />
+    <Property Name="qty" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="discount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="purchaseinvoice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="invoiceID" Type="int" Nullable="false" />
+    <Property Name="vid" Type="int" Nullable="false" />
+    <Property Name="itemID" Type="int" Nullable="false" />
+    <Property Name="measurementID" Type="int" Nullable="false" />
+    <Property Name="vendorInvoiceNo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cost" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="discount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="qty" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vendor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vid" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="accID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="fname" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="lname" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BankName" Type="varchar" MaxLength="20" />
+    <Property Name="BankAcTitle" Type="varchar" MaxLength="30" />
+    <Property Name="BankAcNo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="bmsModelStoreContainer">
+    <EntitySet Name="account" EntityType="Self.account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="accountHead" EntityType="Self.accountHead" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="company" EntityType="Self.company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="measurement" EntityType="Self.measurement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="puchaseOrder" EntityType="Self.puchaseOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="purchaseinvoice" EntityType="Self.purchaseinvoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vendor" EntityType="Self.vendor" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
